@@ -19,6 +19,13 @@
 		CB498E2A1880732C007F1F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E121880732C007F1F01 /* UIKit.framework */; };
 		CB498E321880732C007F1F01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB498E301880732C007F1F01 /* InfoPlist.strings */; };
 		CB498E341880732C007F1F01 /* MinesweeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E331880732C007F1F01 /* MinesweeperTests.m */; };
+		CB498E4318807AD0007F1F01 /* ANGridItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E4218807AD0007F1F01 /* ANGridItem.m */; };
+		CB498E4D18807B4E007F1F01 /* ANGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E4B18807B4E007F1F01 /* ANGridViewController.m */; };
+		CB498E4E18807B4E007F1F01 /* ANGridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB498E4C18807B4E007F1F01 /* ANGridViewController.xib */; };
+		CB498E5118807CF2007F1F01 /* ANGridItemNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E5018807CF2007F1F01 /* ANGridItemNumber.m */; };
+		CB498E5418807D98007F1F01 /* ANGridItemMine.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E5318807D98007F1F01 /* ANGridItemMine.m */; };
+		CB498E5718807F1C007F1F01 /* ANGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E5618807F1C007F1F01 /* ANGrid.m */; };
+		CB498E5A18807FB7007F1F01 /* ANGridSeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E5918807FB7007F1F01 /* ANGridSeeder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,19 @@
 		CB498E2F1880732C007F1F01 /* MinesweeperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MinesweeperTests-Info.plist"; sourceTree = "<group>"; };
 		CB498E311880732C007F1F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB498E331880732C007F1F01 /* MinesweeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinesweeperTests.m; sourceTree = "<group>"; };
+		CB498E4118807AD0007F1F01 /* ANGridItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItem.h; sourceTree = "<group>"; };
+		CB498E4218807AD0007F1F01 /* ANGridItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItem.m; sourceTree = "<group>"; };
+		CB498E4A18807B4E007F1F01 /* ANGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridViewController.h; sourceTree = "<group>"; };
+		CB498E4B18807B4E007F1F01 /* ANGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridViewController.m; sourceTree = "<group>"; };
+		CB498E4C18807B4E007F1F01 /* ANGridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANGridViewController.xib; sourceTree = "<group>"; };
+		CB498E4F18807CF2007F1F01 /* ANGridItemNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItemNumber.h; sourceTree = "<group>"; };
+		CB498E5018807CF2007F1F01 /* ANGridItemNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItemNumber.m; sourceTree = "<group>"; };
+		CB498E5218807D98007F1F01 /* ANGridItemMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItemMine.h; sourceTree = "<group>"; };
+		CB498E5318807D98007F1F01 /* ANGridItemMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItemMine.m; sourceTree = "<group>"; };
+		CB498E5518807F1C007F1F01 /* ANGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGrid.h; sourceTree = "<group>"; };
+		CB498E5618807F1C007F1F01 /* ANGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGrid.m; sourceTree = "<group>"; };
+		CB498E5818807FB7007F1F01 /* ANGridSeeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridSeeder.h; sourceTree = "<group>"; };
+		CB498E5918807FB7007F1F01 /* ANGridSeeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridSeeder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +129,10 @@
 			children = (
 				CB498E1D1880732C007F1F01 /* ANAppDelegate.h */,
 				CB498E1E1880732C007F1F01 /* ANAppDelegate.m */,
+				CB498E5818807FB7007F1F01 /* ANGridSeeder.h */,
+				CB498E5918807FB7007F1F01 /* ANGridSeeder.m */,
+				CB498E4918807B4E007F1F01 /* View Controllers */,
+				CB498E4018807AD0007F1F01 /* Models */,
 				CB498E201880732C007F1F01 /* Images.xcassets */,
 				CB498E151880732C007F1F01 /* Supporting Files */,
 			);
@@ -142,6 +166,31 @@
 				CB498E301880732C007F1F01 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB498E4018807AD0007F1F01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB498E5518807F1C007F1F01 /* ANGrid.h */,
+				CB498E5618807F1C007F1F01 /* ANGrid.m */,
+				CB498E4118807AD0007F1F01 /* ANGridItem.h */,
+				CB498E4218807AD0007F1F01 /* ANGridItem.m */,
+				CB498E4F18807CF2007F1F01 /* ANGridItemNumber.h */,
+				CB498E5018807CF2007F1F01 /* ANGridItemNumber.m */,
+				CB498E5218807D98007F1F01 /* ANGridItemMine.h */,
+				CB498E5318807D98007F1F01 /* ANGridItemMine.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB498E4918807B4E007F1F01 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB498E4A18807B4E007F1F01 /* ANGridViewController.h */,
+				CB498E4B18807B4E007F1F01 /* ANGridViewController.m */,
+				CB498E4C18807B4E007F1F01 /* ANGridViewController.xib */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB498E191880732C007F1F01 /* InfoPlist.strings in Resources */,
+				CB498E4E18807B4E007F1F01 /* ANGridViewController.xib in Resources */,
 				CB498E211880732C007F1F01 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB498E4318807AD0007F1F01 /* ANGridItem.m in Sources */,
+				CB498E4D18807B4E007F1F01 /* ANGridViewController.m in Sources */,
+				CB498E5418807D98007F1F01 /* ANGridItemMine.m in Sources */,
+				CB498E5118807CF2007F1F01 /* ANGridItemNumber.m in Sources */,
+				CB498E5718807F1C007F1F01 /* ANGrid.m in Sources */,
 				CB498E1B1880732C007F1F01 /* main.m in Sources */,
+				CB498E5A18807FB7007F1F01 /* ANGridSeeder.m in Sources */,
 				CB498E1F1880732C007F1F01 /* ANAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
