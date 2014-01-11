@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usY-vZ-XIy" userLabel="Tob Bar View">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-08-ahu">
@@ -62,23 +62,40 @@
                                 <action selector="onNewGameButtonTapped:" destination="-1" eventType="touchUpInside" id="X8m-Nr-KXG"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-uZ-FmW">
+                            <rect key="frame" x="21" y="56" width="37" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Save">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onSaveButtonTapped:" destination="-1" eventType="touchUpInside" id="AJJ-Xz-Hpg"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlN-re-u3N">
+                            <rect key="frame" x="66" y="56" width="38" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Load">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onLoadButtonTapped:" destination="-1" eventType="touchUpInside" id="QEN-a8-dMa"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="1qB-9D-Lb4"/>
-                        <constraint firstItem="4Ji-N4-ggT" firstAttribute="top" secondItem="usY-vZ-XIy" secondAttribute="top" constant="10" id="84V-2U-fNc"/>
-                        <constraint firstAttribute="bottom" secondItem="NeP-Kp-fPd" secondAttribute="bottom" constant="10" id="Cgs-cB-jRs"/>
+                        <constraint firstAttribute="height" constant="100" id="1qB-9D-Lb4"/>
                         <constraint firstItem="QiS-08-ahu" firstAttribute="leading" secondItem="usY-vZ-XIy" secondAttribute="leading" constant="20" id="GVk-gb-0c4"/>
-                        <constraint firstItem="QiS-08-ahu" firstAttribute="top" secondItem="usY-vZ-XIy" secondAttribute="top" constant="10" id="TKF-nQ-dXJ"/>
-                        <constraint firstAttribute="bottom" secondItem="QiS-08-ahu" secondAttribute="bottom" constant="10" id="Xa3-5w-nsJ"/>
-                        <constraint firstItem="NeP-Kp-fPd" firstAttribute="top" secondItem="usY-vZ-XIy" secondAttribute="top" constant="10" id="fF5-6S-d19"/>
+                        <constraint firstItem="NeP-Kp-fPd" firstAttribute="top" secondItem="usY-vZ-XIy" secondAttribute="top" constant="10" id="GqT-4t-LTG"/>
+                        <constraint firstItem="QiS-08-ahu" firstAttribute="top" secondItem="usY-vZ-XIy" secondAttribute="top" constant="10" id="bhG-cl-we8"/>
                         <constraint firstAttribute="trailing" secondItem="4Ji-N4-ggT" secondAttribute="trailing" constant="20" id="ft5-c1-Z3h"/>
+                        <constraint firstItem="4Ji-N4-ggT" firstAttribute="top" secondItem="usY-vZ-XIy" secondAttribute="top" constant="10" id="icz-ej-A0V"/>
                         <constraint firstAttribute="centerX" secondItem="NeP-Kp-fPd" secondAttribute="centerX" id="nXg-UI-MWR"/>
-                        <constraint firstAttribute="bottom" secondItem="4Ji-N4-ggT" secondAttribute="bottom" constant="10" id="r9E-fJ-hkN"/>
                     </constraints>
                 </view>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="k6w-8C-19A" userLabel="Grid">
-                    <rect key="frame" x="0.0" y="50" width="320" height="518"/>
+                    <rect key="frame" x="0.0" y="100" width="320" height="468"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PpH-cq-YsM">
                         <size key="itemSize" width="30" height="30"/>

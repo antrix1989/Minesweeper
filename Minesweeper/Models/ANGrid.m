@@ -62,6 +62,28 @@
     return result;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        _rowsCount = [aDecoder decodeIntForKey:@"rowsCount"];
+        _sectionsCount = [aDecoder decodeIntForKey:@"sectionsCount"];
+        _items = [aDecoder decodeObjectForKey:@"items"];
+        _selectedIndexes = [aDecoder decodeObjectForKey:@"selectedIndexes"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInt:self.rowsCount forKey:@"rowsCount"];
+    [aCoder encodeInt:self.sectionsCount forKey:@"sectionsCount"];
+    [aCoder encodeObject:self.items forKey:@"items"];
+    [aCoder encodeObject:self.selectedIndexes forKey:@"selectedIndexes"];
+}
+
 #pragma mark - Public
 
 - (ANGridItem *)gridItemAtIndexPath:(NSIndexPath *)indexPath
@@ -166,9 +188,19 @@
 
 - (BOOL)save;
 {
-    NSString *path = [self archivePath];
+    return [NSKeyedArchiver archiveRootObject:self toFile:[self archivePath]];
+}
+
+- (BOOL)load
+{
+    ANGrid *loadedGrid = [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]];
     
-    return [NSKeyedArchiver archiveRootObject:self toFile:path];
+    self.selectedIndexes = loadedGrid.selectedIndexes;
+    _rowsCount = loadedGrid.rowsCount;
+    _sectionsCount = loadedGrid.sectionsCount;
+    _items = loadedGrid.items;
+    
+    return loadedGrid != nil;
 }
 
 #pragma mark - Private

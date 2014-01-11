@@ -39,4 +39,21 @@
     return [NSString stringWithFormat:@"%d", self.number];
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        _number = [aDecoder decodeIntForKey:@"number"];
+
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInt:self.number forKey:@"number"];
+}
+
 @end

@@ -40,6 +40,8 @@ typedef NS_ENUM(NSInteger, ANGameState)
 - (IBAction)onShowMinesButtonTapped:(id)sender;
 - (IBAction)onValidateButtonTapped:(id)sender;
 - (IBAction)onNewGameButtonTapped:(id)sender;
+- (IBAction)onSaveButtonTapped:(id)sender;
+- (IBAction)onLoadButtonTapped:(id)sender;
 
 @end
 
@@ -172,6 +174,24 @@ typedef NS_ENUM(NSInteger, ANGameState)
 - (IBAction)onNewGameButtonTapped:(id)sender
 {
     [self startNewGame];
+}
+
+- (IBAction)onSaveButtonTapped:(id)sender
+{
+    if (self.state != ANGameStatePlaying) {
+        return;
+    }
+    
+    [self.grid save];
+}
+
+- (IBAction)onLoadButtonTapped:(id)sender
+{
+    [self.grid load];
+    
+    self.state = ANGameStatePlaying;
+    
+    [self.gridCollectionView reloadData];
 }
 
 #pragma mark - Private

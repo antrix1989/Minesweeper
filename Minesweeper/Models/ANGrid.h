@@ -11,7 +11,7 @@
 /**
  Represents a grid model that holds all grid items.
  */
-@interface ANGrid : NSObject
+@interface ANGrid : NSObject <NSCoding>
 
 /**
  Array of grid items.
@@ -83,9 +83,15 @@
 - (BOOL)isItemAtIndexPathSelected:(NSIndexPath *)indexPath;
 
 /**
- Saves grid to fyle systme.
+ Saves grid to file systme.
  @return BOOL YES if grid was saved, NO otherwise.
  */
 - (BOOL)save;
+
+/**
+ Load grid from file systme.
+ @return BOOL YES if grid was loaded, NO otherwise.
+ */
+- (BOOL)load;
 
 @end

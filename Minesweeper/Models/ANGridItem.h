@@ -9,6 +9,6 @@
 /**
  Represents an abstract model that is basic class of all grid items.
  */
-@interface ANGridItem : NSObject
+@interface ANGridItem : NSObject <NSCoding>
 
 @end
