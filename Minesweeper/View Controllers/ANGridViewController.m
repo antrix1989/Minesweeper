@@ -12,6 +12,7 @@
 #import "ANGridItemCell.h"
 #import "ANGridItem.h"
 #import "ANGridItemMine.h"
+#import "ANGridItemNumber.h"
 
 const NSUInteger kGridRowsCount = 8;
 const NSUInteger kGridSectionsCount = 8;
@@ -71,11 +72,13 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
+    
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView dequeueReusableCellWithReuseIdentifier:kGridItemCell forIndexPath:indexPath];
     
-    gridItemCell.gridItem = [self.grid gridItemAtIndexPath:indexPath];
+    gridItemCell.gridItem = [self.grid gridItemAtIndexPath:gridIndexPath];
     
-    BOOL showValue = [self.selectedIndexes containsObject:indexPath];
+    BOOL showValue = [self.selectedIndexes containsObject:gridIndexPath];
     
     if ([gridItemCell.gridItem isKindOfClass:ANGridItemMine.class]) {
         [gridItemCell showValue:self.showMines];
@@ -90,15 +93,24 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.selectedIndexes addObject:indexPath];
+    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
+    NSLog(@"row: %d, section: %d", gridIndexPath.row, gridIndexPath.section);
+
+    [self selectItemAtIndexPath:indexPath];
     
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView cellForItemAtIndexPath:indexPath];
     [gridItemCell showValue:YES];
+    
+    if ([gridItemCell.gridItem isKindOfClass:ANGridItemMine.class]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Game Over" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
-- (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     
     NSUInteger countOfSectionSepartors = kGridCellsSeparatorWidht * self.grid.sectionsCount - 1;
     
@@ -109,12 +121,14 @@ static NSString *kGridItemCell = @"ANGridItemCell";
     return CGSizeMake(widthSpaceForCell, widthSpaceForCell);
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
     // Top, left, bottom, right.
     return UIEdgeInsetsMake(kGridCellsSeparatorWidht, 0, 0, 0);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
     
     return 0;
 }
@@ -138,4 +152,33 @@ static NSString *kGridItemCell = @"ANGridItemCell";
     
     [self.showMinesButton setTitle:title forState:UIControlStateNormal];
 }
+
+- (NSIndexPath *)invertedIndexPath:(NSIndexPath *)indexPath
+{
+    return [NSIndexPath indexPathForRow:indexPath.section inSection:indexPath.row];
+}
+
+- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
+    [self.selectedIndexes addObject:gridIndexPath];
+    
+    ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView cellForItemAtIndexPath:indexPath];
+    [gridItemCell showValue:YES];
+    
+    if ([gridItemCell.gridItem isKindOfClass:ANGridItemNumber.class]) {
+        ANGridItemNumber *gridItemNumber = (ANGridItemNumber *)gridItemCell.gridItem;
+        
+        if (gridItemNumber.number == 0) {
+            // Select every cell around it.
+            for (NSIndexPath *adjancedIndexPath in [self.grid adjacentIndexesForItemAtIndexPath:gridIndexPath]) {
+                // If this cell wasn't already selected - select it.
+                if (![self.selectedIndexes containsObject:adjancedIndexPath]) {
+                    [self selectItemAtIndexPath: [self invertedIndexPath:adjancedIndexPath]];
+                }
+            }
+        }
+    }
+}
+
 @end

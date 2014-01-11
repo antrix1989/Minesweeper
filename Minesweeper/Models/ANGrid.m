@@ -129,4 +129,59 @@
     return result;
 }
 
+- (NSArray *)adjacentIndexesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableArray *result = [NSMutableArray new];
+    
+    if (indexPath.section > 0) {
+        // Get left item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1];
+        [result addObject:itemIndexPath];
+    }
+    
+    if (indexPath.section < self.sectionsCount - 1) {
+        // Get right item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
+        [result addObject:itemIndexPath];
+    }
+    
+    if (indexPath.row > 0) {
+        // Get top item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
+        [result addObject:itemIndexPath];
+    }
+    
+    if (indexPath.row < self.rowsCount - 1) {
+        // Get bottom item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+        [result addObject:itemIndexPath];
+    }
+    
+    if (indexPath.section > 0 && indexPath.row > 0) {
+        // Get top left item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section - 1];
+        [result addObject:itemIndexPath];
+    }
+    
+    if (indexPath.section < self.sectionsCount - 1 && indexPath.row > 0) {
+        // Get top right item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section + 1];
+        [result addObject:itemIndexPath];
+    }
+    
+    if (indexPath.section > 0 && indexPath.row < self.rowsCount - 1) {
+        // Get bottom left item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section - 1];
+        [result addObject:itemIndexPath];
+    }
+    
+    if (indexPath.section < self.sectionsCount - 1 && indexPath.row < self.rowsCount - 1) {
+        // Get bottom right item.
+        NSIndexPath *itemIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section + 1];
+        [result addObject:itemIndexPath];
+    }
+    
+    return result;
+}
+
 @end

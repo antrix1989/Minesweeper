@@ -50,10 +50,17 @@
 - (void)setGridItem:(ANGridItem *)gridItem atIndexPath:(NSIndexPath *)indexPath;
 
 /**
- Returns adjacent grid (including diagonals) items for item at index path.
+ Returns adjacent (including diagonals) grid items for item at index path.
  @param indexPath Path of the item.
- @return
+ @return NSArray of the adjacent ANGridItem.
  */
 - (NSArray *)adjacentGridItemsForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ Returns adjacent (including diagonals) indexes for item at index path.
+ @param indexPath Path of the item.
+ @return NSArray of the adjacent indexes.
+ */
+- (NSArray *)adjacentIndexesForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
