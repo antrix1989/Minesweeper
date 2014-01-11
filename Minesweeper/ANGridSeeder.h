@@ -22,7 +22,8 @@
 /**
  Seeds grid with mines (ANGridItemMine) and numbers (ANGridItemNumber).
  @param grid which will be seeded.
+ @param minesCount Count of the mines.
  */
-- (void)seedGrid:(ANGrid *)grid;
+- (void)seedGrid:(ANGrid *)grid withMinesCount:(NSUInteger)minesCount;
 
 @end

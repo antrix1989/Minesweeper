@@ -36,7 +36,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%d", self.number];
+    return [NSString stringWithFormat:@"%lu", (unsigned long)self.number];
 }
 
 #pragma mark - NSCoding
@@ -53,7 +53,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeInt:self.number forKey:@"number"];
+    [aCoder encodeInt:(int)self.number forKey:@"number"];
 }
 
 @end

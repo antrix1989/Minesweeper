@@ -78,8 +78,8 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeInt:self.rowsCount forKey:@"rowsCount"];
-    [aCoder encodeInt:self.sectionsCount forKey:@"sectionsCount"];
+    [aCoder encodeInt:(int)self.rowsCount forKey:@"rowsCount"];
+    [aCoder encodeInt:(int)self.sectionsCount forKey:@"sectionsCount"];
     [aCoder encodeObject:self.items forKey:@"items"];
     [aCoder encodeObject:self.selectedIndexes forKey:@"selectedIndexes"];
 }

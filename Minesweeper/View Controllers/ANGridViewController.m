@@ -15,8 +15,6 @@
 #import "ANGridItemNumber.h"
 #import "ANGridValidator.h"
 
-const NSUInteger kGridRowsCount = 8;
-const NSUInteger kGridSectionsCount = 8;
 const NSUInteger kGridCellsSeparatorWidht = 1;
 
 static NSString *kGridItemCell = @"ANGridItemCell";
@@ -32,6 +30,10 @@ typedef NS_ENUM(NSInteger, ANGameState)
 
 @property (weak, nonatomic) IBOutlet UICollectionView *gridCollectionView;
 @property (weak, nonatomic) IBOutlet UIButton *showMinesButton;
+@property (weak, nonatomic) IBOutlet UISlider *sizeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *minesSlider;
+@property (weak, nonatomic) IBOutlet UILabel *gridSizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *minesCountLabel;
 
 @property (strong, nonatomic) ANGrid *grid;
 @property (assign, nonatomic) BOOL showMines;
@@ -42,6 +44,8 @@ typedef NS_ENUM(NSInteger, ANGameState)
 - (IBAction)onNewGameButtonTapped:(id)sender;
 - (IBAction)onSaveButtonTapped:(id)sender;
 - (IBAction)onLoadButtonTapped:(id)sender;
+- (IBAction)onSizeScrub:(id)sender;
+- (IBAction)onMinesCountScrub:(id)sender;
 
 @end
 
@@ -61,6 +65,8 @@ typedef NS_ENUM(NSInteger, ANGameState)
     [super viewWillAppear:animated];
     
     [self startNewGame];
+    
+    [self updateUi];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -194,6 +200,16 @@ typedef NS_ENUM(NSInteger, ANGameState)
     [self.gridCollectionView reloadData];
 }
 
+- (IBAction)onSizeScrub:(id)sender
+{
+    [self updateUi];
+}
+
+- (IBAction)onMinesCountScrub:(id)sender
+{
+    [self updateUi];
+}
+
 #pragma mark - Private
 
 - (void)setShowMines:(BOOL)showMines
@@ -237,15 +253,31 @@ typedef NS_ENUM(NSInteger, ANGameState)
 {
     self.showMines = NO;
     
-    self.grid = [[ANGrid alloc] initWithRowsCount:kGridRowsCount andSectionsCount:kGridSectionsCount];
+    self.grid = [[ANGrid alloc] initWithRowsCount:[self gridSizeValue] andSectionsCount:[self gridSizeValue]];
     
-    [[ANGridSeeder sharedInstance] seedGrid:self.grid];
+    [[ANGridSeeder sharedInstance] seedGrid:self.grid withMinesCount:[self minesCountValue]];
     
     NSLog(@"%@", self.grid);
     
     [self.gridCollectionView reloadData];
     
     self.state = ANGameStatePlaying;
+}
+
+- (void)updateUi
+{
+    self.gridSizeLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self gridSizeValue]];
+    self.minesCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self minesCountValue]];
+}
+
+- (NSUInteger)gridSizeValue
+{
+    return (int)self.sizeSlider.value;
+}
+
+- (NSUInteger)minesCountValue
+{
+    return (int)self.minesSlider.value;
 }
 
 @end

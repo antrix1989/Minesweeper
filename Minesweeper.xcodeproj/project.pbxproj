@@ -20,8 +20,6 @@
 		CB498E281880732C007F1F01 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E271880732C007F1F01 /* XCTest.framework */; };
 		CB498E291880732C007F1F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E0E1880732C007F1F01 /* Foundation.framework */; };
 		CB498E2A1880732C007F1F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E121880732C007F1F01 /* UIKit.framework */; };
-		CB498E321880732C007F1F01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB498E301880732C007F1F01 /* InfoPlist.strings */; };
-		CB498E341880732C007F1F01 /* MinesweeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E331880732C007F1F01 /* MinesweeperTests.m */; };
 		CB498E4318807AD0007F1F01 /* ANGridItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E4218807AD0007F1F01 /* ANGridItem.m */; };
 		CB498E4D18807B4E007F1F01 /* ANGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E4B18807B4E007F1F01 /* ANGridViewController.m */; };
 		CB498E4E18807B4E007F1F01 /* ANGridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB498E4C18807B4E007F1F01 /* ANGridViewController.xib */; };
@@ -60,9 +58,6 @@
 		CB498E201880732C007F1F01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB498E261880732C007F1F01 /* MinesweeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinesweeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB498E271880732C007F1F01 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CB498E2F1880732C007F1F01 /* MinesweeperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MinesweeperTests-Info.plist"; sourceTree = "<group>"; };
-		CB498E311880732C007F1F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CB498E331880732C007F1F01 /* MinesweeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinesweeperTests.m; sourceTree = "<group>"; };
 		CB498E4118807AD0007F1F01 /* ANGridItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItem.h; sourceTree = "<group>"; };
 		CB498E4218807AD0007F1F01 /* ANGridItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItem.m; sourceTree = "<group>"; };
 		CB498E4A18807B4E007F1F01 /* ANGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridViewController.h; sourceTree = "<group>"; };
@@ -116,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				CB498E141880732C007F1F01 /* Minesweeper */,
-				CB498E2D1880732C007F1F01 /* MinesweeperTests */,
 				CB498E0D1880732B007F1F01 /* Frameworks */,
 				CB498E0C1880732B007F1F01 /* Products */,
 			);
@@ -167,24 +161,6 @@
 				CB498E171880732C007F1F01 /* InfoPlist.strings */,
 				CB498E1A1880732C007F1F01 /* main.m */,
 				CB498E1C1880732C007F1F01 /* Minesweeper-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CB498E2D1880732C007F1F01 /* MinesweeperTests */ = {
-			isa = PBXGroup;
-			children = (
-				CB498E331880732C007F1F01 /* MinesweeperTests.m */,
-				CB498E2E1880732C007F1F01 /* Supporting Files */,
-			);
-			path = MinesweeperTests;
-			sourceTree = "<group>";
-		};
-		CB498E2E1880732C007F1F01 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CB498E2F1880732C007F1F01 /* MinesweeperTests-Info.plist */,
-				CB498E301880732C007F1F01 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -301,7 +277,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB498E321880732C007F1F01 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +304,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB498E341880732C007F1F01 /* MinesweeperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,14 +322,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				CB498E181880732C007F1F01 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CB498E301880732C007F1F01 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB498E311880732C007F1F01 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

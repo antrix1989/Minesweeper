@@ -11,8 +11,6 @@
 #import "ANGridItemNumber.h"
 #import "ANGrid.h"
 
-const NSUInteger kMinesCount = 8;
-
 @implementation ANGridSeeder
 
 #pragma mark - NSObject
@@ -35,20 +33,12 @@ const NSUInteger kMinesCount = 8;
     return sharedInstance;
 }
 
-- (void)seedGrid:(ANGrid *)grid
-{
-    [self seedMines:grid];
-    [self seedNumbers:grid];
-}
-
-#pragma mark - Private
-
-- (void)seedMines:(ANGrid *)grid
+- (void)seedGrid:(ANGrid *)grid withMinesCount:(NSUInteger)minesCount;
 {
     NSMutableArray *mineIndexes = [NSMutableArray new];
     
-    while (mineIndexes.count < kMinesCount) {
-        NSNumber *randomIndex = [NSNumber numberWithInt:arc4random_uniform(grid.items.count)];
+    while (mineIndexes.count < minesCount) {
+        NSNumber *randomIndex = [NSNumber numberWithInt:arc4random_uniform((unsigned int)grid.items.count)];
         
         BOOL randomIndexAlreadyExists = CFArrayContainsValue ((__bridge CFArrayRef)mineIndexes, CFRangeMake(0, mineIndexes.count), (CFNumberRef)randomIndex);
         
@@ -62,7 +52,11 @@ const NSUInteger kMinesCount = 8;
     for (NSNumber *mineIndex in mineIndexes) {
         [grid.items replaceObjectAtIndex:[mineIndex intValue] withObject:[ANGridItemMine new]];
     }
+
+    [self seedNumbers:grid];
 }
+
+#pragma mark - Private
 
 - (void)seedNumbers:(ANGrid *)grid
 {
