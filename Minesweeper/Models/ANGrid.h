@@ -82,4 +82,10 @@
  */
 - (BOOL)isItemAtIndexPathSelected:(NSIndexPath *)indexPath;
 
+/**
+ Saves grid to fyle systme.
+ @return BOOL YES if grid was saved, NO otherwise.
+ */
+- (BOOL)save;
+
 @end

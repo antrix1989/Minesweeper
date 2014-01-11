@@ -21,6 +21,13 @@ const NSUInteger kGridCellsSeparatorWidht = 1;
 
 static NSString *kGridItemCell = @"ANGridItemCell";
 
+typedef NS_ENUM(NSInteger, ANGameState)
+{
+    ANGameStateUnknown,
+    ANGameStatePlaying,
+    ANGameStateEnd
+};
+
 @interface ANGridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *gridCollectionView;
@@ -28,9 +35,11 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 
 @property (strong, nonatomic) ANGrid *grid;
 @property (assign, nonatomic) BOOL showMines;
+@property (assign, nonatomic) ANGameState state;
 
 - (IBAction)onShowMinesButtonTapped:(id)sender;
 - (IBAction)onValidateButtonTapped:(id)sender;
+- (IBAction)onNewGameButtonTapped:(id)sender;
 
 @end
 
@@ -42,19 +51,22 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 {
     [super viewDidLoad];
     
-    self.showMines = NO;
-    
     [self.gridCollectionView registerNib:[UINib nibWithNibName:kGridItemCell bundle:nil] forCellWithReuseIdentifier:kGridItemCell];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    self.grid = [[ANGrid alloc] initWithRowsCount:kGridRowsCount andSectionsCount:kGridSectionsCount];
+    [self startNewGame];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
-    NSLog(@"%@", self.grid);
-    
-    [[ANGridSeeder sharedInstance] seedGrid:self.grid];
-    
-    NSLog(@"%@", self.grid);
-    
-    [self.gridCollectionView reloadData];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Are you ready?" delegate:nil cancelButtonTitle:@"Start" otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -92,9 +104,10 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
-//    NSLog(@"row: %d, section: %d", gridIndexPath.row, gridIndexPath.section);
-
+    if (self.state != ANGameStatePlaying) {
+        return;
+    }
+    
     [self selectItemAtIndexPath:indexPath];
     
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView cellForItemAtIndexPath:indexPath];
@@ -103,6 +116,8 @@ static NSString *kGridItemCell = @"ANGridItemCell";
     if ([gridItemCell.gridItem isKindOfClass:ANGridItemMine.class]) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Game Over" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
+        
+        self.state = ANGameStateEnd;
     }
 }
 
@@ -144,12 +159,19 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 - (IBAction)onValidateButtonTapped:(id)sender
 {
     if ([[ANGridValidator sharedInstance] isGridContainsUnselecteNumberItems:self.grid]) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Game Over" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:@"Not all cells with numbers were clicked." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Congratulation" message:@"You win!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
+    
+    self.state = ANGameStateEnd;
+}
+
+- (IBAction)onNewGameButtonTapped:(id)sender
+{
+    [self startNewGame];
 }
 
 #pragma mark - Private
@@ -189,6 +211,21 @@ static NSString *kGridItemCell = @"ANGridItemCell";
             }
         }
     }
+}
+
+- (void)startNewGame
+{
+    self.showMines = NO;
+    
+    self.grid = [[ANGrid alloc] initWithRowsCount:kGridRowsCount andSectionsCount:kGridSectionsCount];
+    
+    [[ANGridSeeder sharedInstance] seedGrid:self.grid];
+    
+    NSLog(@"%@", self.grid);
+    
+    [self.gridCollectionView reloadData];
+    
+    self.state = ANGameStatePlaying;
 }
 
 @end

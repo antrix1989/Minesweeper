@@ -164,4 +164,21 @@
     return [self.selectedIndexes containsObject:indexPath];
 }
 
+- (BOOL)save;
+{
+    NSString *path = [self archivePath];
+    
+    return [NSKeyedArchiver archiveRootObject:self toFile:path];
+}
+
+#pragma mark - Private
+
+- (NSString *)archivePath
+{
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingPathComponent:@"grid.archive"];
+}
+
 @end
