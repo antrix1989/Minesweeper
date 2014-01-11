@@ -17,15 +17,6 @@ const NSUInteger kMinesCount = 8;
 
 #pragma mark - NSObject
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-    }
-    
-    return self;
-}
-
 + (id)allocWithZone:(NSZone *)zone
 {
     return [self sharedInstance];

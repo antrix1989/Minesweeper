@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB422C221880B8AC0002095D /* ANGridItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB422C211880B8AC0002095D /* ANGridItemCell.m */; };
 		CB422C241880B8C10002095D /* ANGridItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB422C231880B8C10002095D /* ANGridItemCell.xib */; };
+		CB422C2718814EF30002095D /* ANGridValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = CB422C2618814EF30002095D /* ANGridValidator.m */; };
 		CB498E0F1880732C007F1F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E0E1880732C007F1F01 /* Foundation.framework */; };
 		CB498E111880732C007F1F01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E101880732C007F1F01 /* CoreGraphics.framework */; };
 		CB498E131880732C007F1F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E121880732C007F1F01 /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 		CB422C201880B8AC0002095D /* ANGridItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItemCell.h; sourceTree = "<group>"; };
 		CB422C211880B8AC0002095D /* ANGridItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItemCell.m; sourceTree = "<group>"; };
 		CB422C231880B8C10002095D /* ANGridItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANGridItemCell.xib; sourceTree = "<group>"; };
+		CB422C2518814EF30002095D /* ANGridValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridValidator.h; sourceTree = "<group>"; };
+		CB422C2618814EF30002095D /* ANGridValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridValidator.m; sourceTree = "<group>"; };
 		CB498E0B1880732B007F1F01 /* Minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB498E0E1880732C007F1F01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CB498E101880732C007F1F01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +149,8 @@
 				CB498E1E1880732C007F1F01 /* ANAppDelegate.m */,
 				CB498E5818807FB7007F1F01 /* ANGridSeeder.h */,
 				CB498E5918807FB7007F1F01 /* ANGridSeeder.m */,
+				CB422C2518814EF30002095D /* ANGridValidator.h */,
+				CB422C2618814EF30002095D /* ANGridValidator.m */,
 				CB498E4918807B4E007F1F01 /* View Controllers */,
 				CB422C1F1880B8AC0002095D /* Cells */,
 				CB498E4018807AD0007F1F01 /* Models */,
@@ -312,6 +317,7 @@
 				CB422C221880B8AC0002095D /* ANGridItemCell.m in Sources */,
 				CB498E5418807D98007F1F01 /* ANGridItemMine.m in Sources */,
 				CB498E5118807CF2007F1F01 /* ANGridItemNumber.m in Sources */,
+				CB422C2718814EF30002095D /* ANGridValidator.m in Sources */,
 				CB498E5718807F1C007F1F01 /* ANGrid.m in Sources */,
 				CB498E1B1880732C007F1F01 /* main.m in Sources */,
 				CB498E5A18807FB7007F1F01 /* ANGridSeeder.m in Sources */,

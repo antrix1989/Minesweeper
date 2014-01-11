@@ -13,6 +13,7 @@
 #import "ANGridItem.h"
 #import "ANGridItemMine.h"
 #import "ANGridItemNumber.h"
+#import "ANGridValidator.h"
 
 const NSUInteger kGridRowsCount = 8;
 const NSUInteger kGridSectionsCount = 8;
@@ -26,10 +27,10 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 @property (weak, nonatomic) IBOutlet UIButton *showMinesButton;
 
 @property (strong, nonatomic) ANGrid *grid;
-@property (strong, nonatomic) NSMutableArray *selectedIndexes;
 @property (assign, nonatomic) BOOL showMines;
 
 - (IBAction)onShowMinesButtonTapped:(id)sender;
+- (IBAction)onValidateButtonTapped:(id)sender;
 
 @end
 
@@ -42,8 +43,6 @@ static NSString *kGridItemCell = @"ANGridItemCell";
     [super viewDidLoad];
     
     self.showMines = NO;
-    
-    self.selectedIndexes = [NSMutableArray new];
     
     [self.gridCollectionView registerNib:[UINib nibWithNibName:kGridItemCell bundle:nil] forCellWithReuseIdentifier:kGridItemCell];
     
@@ -78,7 +77,7 @@ static NSString *kGridItemCell = @"ANGridItemCell";
     
     gridItemCell.gridItem = [self.grid gridItemAtIndexPath:gridIndexPath];
     
-    BOOL showValue = [self.selectedIndexes containsObject:gridIndexPath];
+    BOOL showValue = [self.grid isItemAtIndexPathSelected:gridIndexPath];
     
     if ([gridItemCell.gridItem isKindOfClass:ANGridItemMine.class]) {
         [gridItemCell showValue:self.showMines];
@@ -93,8 +92,8 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
-    NSLog(@"row: %d, section: %d", gridIndexPath.row, gridIndexPath.section);
+//    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
+//    NSLog(@"row: %d, section: %d", gridIndexPath.row, gridIndexPath.section);
 
     [self selectItemAtIndexPath:indexPath];
     
@@ -142,6 +141,17 @@ static NSString *kGridItemCell = @"ANGridItemCell";
     [self.gridCollectionView reloadData];
 }
 
+- (IBAction)onValidateButtonTapped:(id)sender
+{
+    if ([[ANGridValidator sharedInstance] isGridContainsUnselecteNumberItems:self.grid]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Game Over" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Congratulation" message:@"You win!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 #pragma mark - Private
 
 - (void)setShowMines:(BOOL)showMines
@@ -161,7 +171,7 @@ static NSString *kGridItemCell = @"ANGridItemCell";
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
-    [self.selectedIndexes addObject:gridIndexPath];
+    [self.grid selectItemAtIndexPath:gridIndexPath];
     
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView cellForItemAtIndexPath:indexPath];
     [gridItemCell showValue:YES];
@@ -173,7 +183,7 @@ static NSString *kGridItemCell = @"ANGridItemCell";
             // Select every cell around it.
             for (NSIndexPath *adjancedIndexPath in [self.grid adjacentIndexesForItemAtIndexPath:gridIndexPath]) {
                 // If this cell wasn't already selected - select it.
-                if (![self.selectedIndexes containsObject:adjancedIndexPath]) {
+                if (![self.grid isItemAtIndexPathSelected:adjancedIndexPath]) {
                     [self selectItemAtIndexPath: [self invertedIndexPath:adjancedIndexPath]];
                 }
             }

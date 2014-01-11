@@ -43,6 +43,12 @@
 - (ANGridItem *)gridItemAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
+ Returns index path of the grid item.
+ @return NSIndexPath of specified grid item.
+ */
+- (NSIndexPath *)indexPathOfGridItem:(ANGridItem *)gridItem;
+
+/**
  Sets grid item at index path.
  @param gridItem New gridItem object.
  @param indexPath Path where object should be replaced.
@@ -62,5 +68,18 @@
  @return NSArray of the adjacent indexes.
  */
 - (NSArray *)adjacentIndexesForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ Selects grid item at index path.
+ @param indexPath Path of the item.
+ */
+- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ Checks is item at index path selected or not.
+ @param indexPath Path of the item.
+ @return BOOL is item selected or not.
+ */
+- (BOOL)isItemAtIndexPathSelected:(NSIndexPath *)indexPath;
 
 @end

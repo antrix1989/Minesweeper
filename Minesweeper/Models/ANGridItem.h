@@ -7,7 +7,7 @@
 //
 
 /**
- Represents an abstract model that is basic class of all grid items which are cover mines.
+ Represents an abstract model that is basic class of all grid items.
  */
 @interface ANGridItem : NSObject
 
