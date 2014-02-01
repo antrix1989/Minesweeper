@@ -40,7 +40,7 @@
     while (mineIndexes.count < minesCount) {
         NSNumber *randomIndex = [NSNumber numberWithInt:arc4random_uniform((unsigned int)grid.items.count)];
         
-        BOOL randomIndexAlreadyExists = CFArrayContainsValue ((__bridge CFArrayRef)mineIndexes, CFRangeMake(0, mineIndexes.count), (CFNumberRef)randomIndex);
+        BOOL randomIndexAlreadyExists = [mineIndexes containsObject:randomIndex];
         
         if (randomIndexAlreadyExists) {
             continue;
