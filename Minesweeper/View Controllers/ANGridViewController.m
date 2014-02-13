@@ -14,8 +14,11 @@
 #import "ANGridItemMine.h"
 #import "ANGridItemNumber.h"
 #import "ANGridValidator.h"
+#import "ANGridCollectionViewFlowLayout.h"
 
 const NSUInteger kGridCellsSeparatorWidht = 1;
+const NSUInteger kGridCellWidht = 30;
+const NSUInteger kGridCellHeight = kGridCellWidht;
 
 static NSString *kGridItemCell = @"ANGridItemCell";
 
@@ -29,6 +32,7 @@ typedef NS_ENUM(NSInteger, ANGameState)
 @interface ANGridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *gridCollectionView;
+@property (weak, nonatomic) IBOutlet ANGridCollectionViewFlowLayout *gridCollectionViewFlowLayout;
 @property (weak, nonatomic) IBOutlet UIButton *showMinesButton;
 @property (weak, nonatomic) IBOutlet UISlider *sizeSlider;
 @property (weak, nonatomic) IBOutlet UISlider *minesSlider;
@@ -58,6 +62,9 @@ typedef NS_ENUM(NSInteger, ANGameState)
     [super viewDidLoad];
     
     [self.gridCollectionView registerNib:[UINib nibWithNibName:kGridItemCell bundle:nil] forCellWithReuseIdentifier:kGridItemCell];
+
+    self.gridCollectionViewFlowLayout.spacing = kGridCellsSeparatorWidht;
+    self.gridCollectionViewFlowLayout.itemSize = CGSizeMake(kGridCellWidht, kGridCellHeight);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -129,32 +136,6 @@ typedef NS_ENUM(NSInteger, ANGameState)
     }
 }
 
-#pragma mark - UICollectionViewDelegateFlowLayout
-
-- (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    NSUInteger countOfSectionSepartors = kGridCellsSeparatorWidht * self.grid.sectionsCount - 1;
-    
-    CGFloat totalWidthSpaceForCells = self.gridCollectionView.frame.size.width - countOfSectionSepartors;
-    
-    CGFloat widthSpaceForCell = totalWidthSpaceForCells / self.grid.sectionsCount;
-    
-    return CGSizeMake(widthSpaceForCell, widthSpaceForCell);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    // Top, left, bottom, right.
-    return UIEdgeInsetsMake(kGridCellsSeparatorWidht, 0, 0, 0);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    
-    return 0;
-}
-
 #pragma mark - IBAction
 
 - (IBAction)onShowMinesButtonTapped:(id)sender
@@ -223,7 +204,8 @@ typedef NS_ENUM(NSInteger, ANGameState)
 
 - (NSIndexPath *)invertedIndexPath:(NSIndexPath *)indexPath
 {
-    return [NSIndexPath indexPathForRow:indexPath.section inSection:indexPath.row];
+    return indexPath;
+//    return [NSIndexPath indexPathForRow:indexPath.section inSection:indexPath.row];
 }
 
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath

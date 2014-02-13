@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB166B6E18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CB166B6D18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m */; };
 		CB422C221880B8AC0002095D /* ANGridItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB422C211880B8AC0002095D /* ANGridItemCell.m */; };
 		CB422C241880B8C10002095D /* ANGridItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB422C231880B8C10002095D /* ANGridItemCell.xib */; };
 		CB422C2718814EF30002095D /* ANGridValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = CB422C2618814EF30002095D /* ANGridValidator.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB166B6C18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		CB166B6D18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		CB422C201880B8AC0002095D /* ANGridItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItemCell.h; sourceTree = "<group>"; };
 		CB422C211880B8AC0002095D /* ANGridItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItemCell.m; sourceTree = "<group>"; };
 		CB422C231880B8C10002095D /* ANGridItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANGridItemCell.xib; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				CB498E5918807FB7007F1F01 /* ANGridSeeder.m */,
 				CB422C2518814EF30002095D /* ANGridValidator.h */,
 				CB422C2618814EF30002095D /* ANGridValidator.m */,
+				CB166B6C18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.h */,
+				CB166B6D18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m */,
 				CB498E4918807B4E007F1F01 /* View Controllers */,
 				CB422C1F1880B8AC0002095D /* Cells */,
 				CB498E4018807AD0007F1F01 /* Models */,
@@ -295,6 +300,7 @@
 				CB422C2718814EF30002095D /* ANGridValidator.m in Sources */,
 				CB498E5718807F1C007F1F01 /* ANGrid.m in Sources */,
 				CB498E1B1880732C007F1F01 /* main.m in Sources */,
+				CB166B6E18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m in Sources */,
 				CB498E5A18807FB7007F1F01 /* ANGridSeeder.m in Sources */,
 				CB498E1F1880732C007F1F01 /* ANAppDelegate.m in Sources */,
 			);
