@@ -98,13 +98,11 @@ typedef NS_ENUM(NSInteger, ANGameState)
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
-    
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView dequeueReusableCellWithReuseIdentifier:kGridItemCell forIndexPath:indexPath];
     
-    gridItemCell.gridItem = [self.grid gridItemAtIndexPath:gridIndexPath];
+    gridItemCell.gridItem = [self.grid gridItemAtIndexPath:indexPath];
     
-    BOOL showValue = [self.grid isItemAtIndexPathSelected:gridIndexPath];
+    BOOL showValue = [self.grid isItemAtIndexPathSelected:indexPath];
     
     if ([gridItemCell.gridItem isKindOfClass:ANGridItemMine.class]) {
         [gridItemCell showValue:self.showMines];
@@ -202,15 +200,9 @@ typedef NS_ENUM(NSInteger, ANGameState)
     [self.showMinesButton setTitle:title forState:UIControlStateNormal];
 }
 
-- (NSIndexPath *)invertedIndexPath:(NSIndexPath *)indexPath
-{
-    return indexPath;
-//    return [NSIndexPath indexPathForRow:indexPath.section inSection:indexPath.row];
-}
-
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSIndexPath *gridIndexPath = [self invertedIndexPath:indexPath];
+    NSIndexPath *gridIndexPath = indexPath;
     [self.grid selectItemAtIndexPath:gridIndexPath];
     
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView cellForItemAtIndexPath:indexPath];
@@ -224,7 +216,7 @@ typedef NS_ENUM(NSInteger, ANGameState)
             for (NSIndexPath *adjancedIndexPath in [self.grid adjacentIndexesForItemAtIndexPath:gridIndexPath]) {
                 // If this cell wasn't already selected - select it.
                 if (![self.grid isItemAtIndexPathSelected:adjancedIndexPath]) {
-                    [self selectItemAtIndexPath: [self invertedIndexPath:adjancedIndexPath]];
+                    [self selectItemAtIndexPath:adjancedIndexPath];
                 }
             }
         }
