@@ -88,7 +88,7 @@ typedef NS_ENUM(NSInteger, ANGameState)
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return self.grid.sectionsCount;
+    return self.grid.columnsCount;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -100,9 +100,11 @@ typedef NS_ENUM(NSInteger, ANGameState)
 {
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView dequeueReusableCellWithReuseIdentifier:kGridItemCell forIndexPath:indexPath];
     
-    gridItemCell.gridItem = [self.grid gridItemAtIndexPath:indexPath];
+    NSIndexPath *gridIndexPath = [NSIndexPath indexPathForGridRow:indexPath.item inGridColumn:indexPath.section];
     
-    BOOL showValue = [self.grid isItemAtIndexPathSelected:indexPath];
+    gridItemCell.gridItem = [self.grid gridItemAtIndexPath:gridIndexPath];
+    
+    BOOL showValue = [self.grid isItemAtIndexPathSelected:gridIndexPath];
     
     if ([gridItemCell.gridItem isKindOfClass:ANGridItemMine.class]) {
         [gridItemCell showValue:self.showMines];
@@ -202,7 +204,7 @@ typedef NS_ENUM(NSInteger, ANGameState)
 
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSIndexPath *gridIndexPath = indexPath;
+    NSIndexPath *gridIndexPath = [NSIndexPath indexPathForGridRow:indexPath.item inGridColumn:indexPath.section];
     [self.grid selectItemAtIndexPath:gridIndexPath];
     
     ANGridItemCell *gridItemCell = (ANGridItemCell *)[self.gridCollectionView cellForItemAtIndexPath:indexPath];
@@ -227,7 +229,7 @@ typedef NS_ENUM(NSInteger, ANGameState)
 {
     self.showMines = NO;
     
-    self.grid = [[ANGrid alloc] initWithRowsCount:[self gridSizeValue] andSectionsCount:[self gridSizeValue]];
+    self.grid = [[ANGrid alloc] initWithColumnsCount:[self gridSizeValue] andRowsCount:[self gridSizeValue]];
     
     [[ANGridSeeder sharedInstance] seedGrid:self.grid withMinesCount:[self minesCountValue]];
     

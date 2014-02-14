@@ -10,6 +10,10 @@
 
 /**
  Represents a grid model that holds all grid items.
+ To get specific node use NSIndexPath, where first item is grid column, and second is grid row.
+ You can use 
+ + (NSIndexPath *)indexPathForGridRow:(NSInteger)gridRow inGridColumn:(NSInteger)gridColumn
+ To
  */
 @interface ANGrid : NSObject <NSCoding>
 
@@ -21,7 +25,7 @@
 /**
  Count of the secions in the grid.
  */
-@property(assign, nonatomic, readonly) NSInteger sectionsCount;
+@property(assign, nonatomic, readonly) NSInteger columnsCount;
 
 /**
  Count of the rows in the grid.
@@ -30,11 +34,11 @@
 
 /**
  Initialize a grid with specified size. By default items are ANGridItemNumber with 0 value.
+ @param columnsCount Width of the grid.
  @param rowsCount Height of the grid.
- @param sectionsCount Width of the grid.
  @return ANGrid object.
  */
-- (id)initWithRowsCount:(NSInteger)rowsCount andSectionsCount:(NSInteger)sectionsCount;
+- (id)initWithColumnsCount:(NSInteger)columnsCount andRowsCount:(NSInteger)rowsCount;
 
 /**
  Returns grid item at index path.
@@ -93,5 +97,20 @@
  @return BOOL YES if grid was loaded, NO otherwise.
  */
 - (BOOL)load;
+
+@end
+
+/**
+ This category provides convenience methods to make it easier to use an NSIndexPath to represent a grid column and row.
+*/
+@interface NSIndexPath (ANGrid)
+
+/**
+ Returns an index-path object initialized with the indexes of a specific row and column in a ANGrid.
+ */
++ (NSIndexPath *)indexPathForGridRow:(NSInteger)gridRow inGridColumn:(NSInteger)gridColumn;
+
+@property(nonatomic, readonly) NSInteger gridColumn;
+@property(nonatomic, readonly) NSInteger gridRow;
 
 @end

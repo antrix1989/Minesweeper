@@ -61,14 +61,14 @@
 - (void)seedNumbers:(ANGrid *)grid
 {
     for (NSInteger rowIndex = 0; rowIndex < grid.rowsCount; rowIndex++) {
-        for (NSInteger sectionIndex = 0; sectionIndex < grid.sectionsCount; sectionIndex++) {
+        for (NSInteger columnIndex = 0; columnIndex < grid.columnsCount; columnIndex++) {
             
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
+            NSIndexPath *gridIndexPath = [NSIndexPath indexPathForGridRow:rowIndex inGridColumn:columnIndex];
             
-            ANGridItem *gridItem = [grid gridItemAtIndexPath:indexPath];
+            ANGridItem *gridItem = [grid gridItemAtIndexPath:gridIndexPath];
             
             if ([gridItem isKindOfClass:[ANGridItemNumber class]]) {
-                NSArray *adjacentItems = [grid adjacentGridItemsForItemAtIndexPath:indexPath];
+                NSArray *adjacentItems = [grid adjacentGridItemsForItemAtIndexPath:gridIndexPath];
                 NSUInteger number = 0;
                 for (ANGridItem *adjacentItem in adjacentItems) {
                     if ([adjacentItem isKindOfClass:[ANGridItemMine class]]) {

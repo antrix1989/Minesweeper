@@ -39,9 +39,9 @@
     
     for (ANGridItem *item in grid.items) {
         if ([item isKindOfClass:ANGridItemNumber.class]) {
-            NSIndexPath *indexPath = [grid indexPathOfGridItem:item];
+            NSIndexPath *gridIndexPath = [grid indexPathOfGridItem:item];
             
-            if (![grid isItemAtIndexPathSelected:indexPath]) {
+            if (![grid isItemAtIndexPathSelected:gridIndexPath]) {
                 return YES;
             }
         }
