@@ -31,10 +31,21 @@
 {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
-    attributes.frame = CGRectMake(self.itemSize.width * indexPath.section + self.spacing * indexPath.section,
-                                  self.itemSize.height * indexPath.item + self.spacing * indexPath.item,
-                                  self.itemSize.width,
-                                  self.itemSize.height);
+    // If there is free space - increase width to max integer possible value and center grid inside collection view.
+    NSUInteger size = (self.collectionView.frame.size.width - [self.collectionView numberOfSections] * self.spacing) / [self.collectionView numberOfSections];
+    
+    CGFloat widthOffset = 0;
+    
+    if (size < self.itemSize.width) {
+        size = self.itemSize.width;
+    } else {
+        widthOffset = (self.collectionView.frame.size.width - (size * [self.collectionView numberOfSections] + [self.collectionView numberOfSections] * self.spacing)) / 2.0;
+    }
+    
+    attributes.frame = CGRectMake(size * indexPath.section + self.spacing * indexPath.section + widthOffset,
+                                  size * indexPath.item + self.spacing * indexPath.item,
+                                  size,
+                                  size);
     
     return attributes;
 }

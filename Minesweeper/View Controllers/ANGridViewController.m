@@ -17,8 +17,7 @@
 #import "ANGridCollectionViewFlowLayout.h"
 
 const NSUInteger kGridCellsSeparatorWidht = 1;
-const NSUInteger kGridCellWidht = 30;
-const NSUInteger kGridCellHeight = kGridCellWidht;
+const NSUInteger kGridCellSize = 30;
 
 static NSString *kGridItemCell = @"ANGridItemCell";
 
@@ -64,7 +63,7 @@ typedef NS_ENUM(NSInteger, ANGameState)
     [self.gridCollectionView registerNib:[UINib nibWithNibName:kGridItemCell bundle:nil] forCellWithReuseIdentifier:kGridItemCell];
 
     self.gridCollectionViewFlowLayout.spacing = kGridCellsSeparatorWidht;
-    self.gridCollectionViewFlowLayout.itemSize = CGSizeMake(kGridCellWidht, kGridCellHeight);
+    self.gridCollectionViewFlowLayout.itemSize = CGSizeMake(kGridCellSize, kGridCellSize);
 }
 
 - (void)viewWillAppear:(BOOL)animated
