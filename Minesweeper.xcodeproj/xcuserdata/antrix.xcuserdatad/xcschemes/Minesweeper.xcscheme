@@ -34,7 +34,17 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CB498E251880732C007F1F01"
                BuildableName = "MinesweeperTests.xctest"
-               BlueprintName = "MinesweeperTests"
+               BlueprintName = "v"
+               ReferencedContainer = "container:Minesweeper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB166B7218B0EF0C00BEFBC0"
+               BuildableName = "Minesweeper Tests.xctest"
+               BlueprintName = "Minesweeper Tests"
                ReferencedContainer = "container:Minesweeper.xcodeproj">
             </BuildableReference>
          </TestableReference>

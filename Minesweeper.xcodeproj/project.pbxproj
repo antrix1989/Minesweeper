@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CB166B6E18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CB166B6D18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m */; };
+		CB166B7418B0EF0C00BEFBC0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E271880732C007F1F01 /* XCTest.framework */; };
+		CB166B7518B0EF0C00BEFBC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E0E1880732C007F1F01 /* Foundation.framework */; };
+		CB166B7618B0EF0C00BEFBC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E121880732C007F1F01 /* UIKit.framework */; };
+		CB166B7C18B0EF0C00BEFBC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB166B7A18B0EF0C00BEFBC0 /* InfoPlist.strings */; };
+		CB166B7E18B0EF0C00BEFBC0 /* ANGrid_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB166B7D18B0EF0C00BEFBC0 /* ANGrid_Tests.m */; };
 		CB422C221880B8AC0002095D /* ANGridItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB422C211880B8AC0002095D /* ANGridItemCell.m */; };
 		CB422C241880B8C10002095D /* ANGridItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB422C231880B8C10002095D /* ANGridItemCell.xib */; };
 		CB422C2718814EF30002095D /* ANGridValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = CB422C2618814EF30002095D /* ANGridValidator.m */; };
@@ -18,9 +23,6 @@
 		CB498E1B1880732C007F1F01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E1A1880732C007F1F01 /* main.m */; };
 		CB498E1F1880732C007F1F01 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E1E1880732C007F1F01 /* ANAppDelegate.m */; };
 		CB498E211880732C007F1F01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB498E201880732C007F1F01 /* Images.xcassets */; };
-		CB498E281880732C007F1F01 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E271880732C007F1F01 /* XCTest.framework */; };
-		CB498E291880732C007F1F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E0E1880732C007F1F01 /* Foundation.framework */; };
-		CB498E2A1880732C007F1F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB498E121880732C007F1F01 /* UIKit.framework */; };
 		CB498E4318807AD0007F1F01 /* ANGridItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E4218807AD0007F1F01 /* ANGridItem.m */; };
 		CB498E4D18807B4E007F1F01 /* ANGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB498E4B18807B4E007F1F01 /* ANGridViewController.m */; };
 		CB498E4E18807B4E007F1F01 /* ANGridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB498E4C18807B4E007F1F01 /* ANGridViewController.xib */; };
@@ -31,7 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CB498E2B1880732C007F1F01 /* PBXContainerItemProxy */ = {
+		CB166B8018B0EF0C00BEFBC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CB498E031880732B007F1F01 /* Project object */;
 			proxyType = 1;
@@ -43,6 +45,11 @@
 /* Begin PBXFileReference section */
 		CB166B6C18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		CB166B6D18ACC7C200BEFBC0 /* ANGridCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		CB166B7318B0EF0C00BEFBC0 /* Minesweeper Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Minesweeper Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB166B7918B0EF0C00BEFBC0 /* Minesweeper Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Minesweeper Tests-Info.plist"; sourceTree = "<group>"; };
+		CB166B7B18B0EF0C00BEFBC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CB166B7D18B0EF0C00BEFBC0 /* ANGrid_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANGrid_Tests.m; sourceTree = "<group>"; };
+		CB166B7F18B0EF0C00BEFBC0 /* Minesweeper Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Minesweeper Tests-Prefix.pch"; sourceTree = "<group>"; };
 		CB422C201880B8AC0002095D /* ANGridItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItemCell.h; sourceTree = "<group>"; };
 		CB422C211880B8AC0002095D /* ANGridItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItemCell.m; sourceTree = "<group>"; };
 		CB422C231880B8C10002095D /* ANGridItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANGridItemCell.xib; sourceTree = "<group>"; };
@@ -59,7 +66,6 @@
 		CB498E1D1880732C007F1F01 /* ANAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		CB498E1E1880732C007F1F01 /* ANAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
 		CB498E201880732C007F1F01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CB498E261880732C007F1F01 /* MinesweeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinesweeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB498E271880732C007F1F01 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CB498E4118807AD0007F1F01 /* ANGridItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGridItem.h; sourceTree = "<group>"; };
 		CB498E4218807AD0007F1F01 /* ANGridItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGridItem.m; sourceTree = "<group>"; };
@@ -77,6 +83,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CB166B7018B0EF0C00BEFBC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB166B7418B0EF0C00BEFBC0 /* XCTest.framework in Frameworks */,
+				CB166B7618B0EF0C00BEFBC0 /* UIKit.framework in Frameworks */,
+				CB166B7518B0EF0C00BEFBC0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB498E081880732B007F1F01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,19 +103,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB498E231880732C007F1F01 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB498E281880732C007F1F01 /* XCTest.framework in Frameworks */,
-				CB498E2A1880732C007F1F01 /* UIKit.framework in Frameworks */,
-				CB498E291880732C007F1F01 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB166B7718B0EF0C00BEFBC0 /* Minesweeper Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CB166B7D18B0EF0C00BEFBC0 /* ANGrid_Tests.m */,
+				CB166B7818B0EF0C00BEFBC0 /* Supporting Files */,
+			);
+			path = "Minesweeper Tests";
+			sourceTree = "<group>";
+		};
+		CB166B7818B0EF0C00BEFBC0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB166B7918B0EF0C00BEFBC0 /* Minesweeper Tests-Info.plist */,
+				CB166B7A18B0EF0C00BEFBC0 /* InfoPlist.strings */,
+				CB166B7F18B0EF0C00BEFBC0 /* Minesweeper Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		CB422C1F1880B8AC0002095D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				CB498E141880732C007F1F01 /* Minesweeper */,
+				CB166B7718B0EF0C00BEFBC0 /* Minesweeper Tests */,
 				CB498E0D1880732B007F1F01 /* Frameworks */,
 				CB498E0C1880732B007F1F01 /* Products */,
 			);
@@ -123,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				CB498E0B1880732B007F1F01 /* Minesweeper.app */,
-				CB498E261880732C007F1F01 /* MinesweeperTests.xctest */,
+				CB166B7318B0EF0C00BEFBC0 /* Minesweeper Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +224,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CB166B7218B0EF0C00BEFBC0 /* Minesweeper Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB166B8218B0EF0C00BEFBC0 /* Build configuration list for PBXNativeTarget "Minesweeper Tests" */;
+			buildPhases = (
+				CB166B6F18B0EF0C00BEFBC0 /* Sources */,
+				CB166B7018B0EF0C00BEFBC0 /* Frameworks */,
+				CB166B7118B0EF0C00BEFBC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB166B8118B0EF0C00BEFBC0 /* PBXTargetDependency */,
+			);
+			name = "Minesweeper Tests";
+			productName = "Minesweeper Tests";
+			productReference = CB166B7318B0EF0C00BEFBC0 /* Minesweeper Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CB498E0A1880732B007F1F01 /* Minesweeper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB498E371880732C007F1F01 /* Build configuration list for PBXNativeTarget "Minesweeper" */;
@@ -215,24 +259,6 @@
 			productReference = CB498E0B1880732B007F1F01 /* Minesweeper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CB498E251880732C007F1F01 /* MinesweeperTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB498E3A1880732C007F1F01 /* Build configuration list for PBXNativeTarget "MinesweeperTests" */;
-			buildPhases = (
-				CB498E221880732C007F1F01 /* Sources */,
-				CB498E231880732C007F1F01 /* Frameworks */,
-				CB498E241880732C007F1F01 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB498E2C1880732C007F1F01 /* PBXTargetDependency */,
-			);
-			name = MinesweeperTests;
-			productName = MinesweeperTests;
-			productReference = CB498E261880732C007F1F01 /* MinesweeperTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -243,7 +269,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "antrix1989@gmail.com";
 				TargetAttributes = {
-					CB498E251880732C007F1F01 = {
+					CB166B7218B0EF0C00BEFBC0 = {
 						TestTargetID = CB498E0A1880732B007F1F01;
 					};
 				};
@@ -261,12 +287,20 @@
 			projectRoot = "";
 			targets = (
 				CB498E0A1880732B007F1F01 /* Minesweeper */,
-				CB498E251880732C007F1F01 /* MinesweeperTests */,
+				CB166B7218B0EF0C00BEFBC0 /* Minesweeper Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CB166B7118B0EF0C00BEFBC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB166B7C18B0EF0C00BEFBC0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB498E091880732B007F1F01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,16 +312,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB498E241880732C007F1F01 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CB166B6F18B0EF0C00BEFBC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB166B7E18B0EF0C00BEFBC0 /* ANGrid_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB498E071880732B007F1F01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,24 +341,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB498E221880732C007F1F01 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CB498E2C1880732C007F1F01 /* PBXTargetDependency */ = {
+		CB166B8118B0EF0C00BEFBC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CB498E0A1880732B007F1F01 /* Minesweeper */;
-			targetProxy = CB498E2B1880732C007F1F01 /* PBXContainerItemProxy */;
+			targetProxy = CB166B8018B0EF0C00BEFBC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CB166B7A18B0EF0C00BEFBC0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB166B7B18B0EF0C00BEFBC0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		CB498E171880732C007F1F01 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -335,6 +371,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CB166B8318B0EF0C00BEFBC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Minesweeper.app/Minesweeper";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Minesweeper Tests/Minesweeper Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Minesweeper Tests/Minesweeper Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CB166B8418B0EF0C00BEFBC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Minesweeper.app/Minesweeper";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Minesweeper Tests/Minesweeper Tests-Prefix.pch";
+				INFOPLIST_FILE = "Minesweeper Tests/Minesweeper Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		CB498E351880732C007F1F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -433,51 +511,17 @@
 			};
 			name = Release;
 		};
-		CB498E3B1880732C007F1F01 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Minesweeper.app/Minesweeper";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Minesweeper/Minesweeper-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MinesweeperTests/MinesweeperTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		CB498E3C1880732C007F1F01 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Minesweeper.app/Minesweeper";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Minesweeper/Minesweeper-Prefix.pch";
-				INFOPLIST_FILE = "MinesweeperTests/MinesweeperTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CB166B8218B0EF0C00BEFBC0 /* Build configuration list for PBXNativeTarget "Minesweeper Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB166B8318B0EF0C00BEFBC0 /* Debug */,
+				CB166B8418B0EF0C00BEFBC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CB498E061880732B007F1F01 /* Build configuration list for PBXProject "Minesweeper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -492,15 +536,6 @@
 			buildConfigurations = (
 				CB498E381880732C007F1F01 /* Debug */,
 				CB498E391880732C007F1F01 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB498E3A1880732C007F1F01 /* Build configuration list for PBXNativeTarget "MinesweeperTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB498E3B1880732C007F1F01 /* Debug */,
-				CB498E3C1880732C007F1F01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
